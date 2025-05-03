@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TripServiceKata\TripServiceKata.csproj" />
+    <ProjectReference Include="..\..\src\TripServiceKata\TripServiceKata.csproj" />
   </ItemGroup>
 
 </Project>

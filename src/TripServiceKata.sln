@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripServiceKata", "TripServiceKata\TripServiceKata.csproj", "{0205A6E4-28D8-467F-A052-7B1ECEA83F0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripServiceKata.Tests", "TripServiceKata.Tests\TripServiceKata.Tests.csproj", "{A4BBC231-76A6-4C1D-A16D-3B223616D1F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripServiceKata.Tests", "..\tests\TripServiceKata.Tests\TripServiceKata.Tests.csproj", "{A4BBC231-76A6-4C1D-A16D-3B223616D1F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
