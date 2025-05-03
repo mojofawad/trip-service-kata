@@ -21,6 +21,7 @@ namespace TripServiceKata.Trip
                         break;
                     }
                 }
+                
                 if (isFriend)
                 {
                     tripList = GetTripsForQueriedUser(queriedUser);
