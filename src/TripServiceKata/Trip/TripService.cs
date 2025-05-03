@@ -18,17 +18,12 @@ namespace TripServiceKata.Trip
             
             var friends = queriedUser.GetFriends();
             var tripList = new List<Trip>();
-            
-            var isFriend = false;
+
             foreach (User.User friend in friends)
             {
                 if (friend.Equals(currentLoggedInUser))
                 {
-                    isFriend = true;
-                    if (isFriend)
-                    {
-                        tripList = GetTripsForQueriedUser(queriedUser);
-                    }
+                    tripList = GetTripsForQueriedUser(queriedUser);
                     break;
                 }
             }
