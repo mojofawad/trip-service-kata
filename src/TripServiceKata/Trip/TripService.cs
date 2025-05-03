@@ -15,7 +15,6 @@ namespace TripServiceKata.Trip
             {
                 throw new UserNotLoggedInException();
             }
-
             
             var friends = queriedUser.GetFriends();
             var tripList = new List<Trip>();
@@ -26,14 +25,16 @@ namespace TripServiceKata.Trip
                 if (friend.Equals(currentLoggedInUser))
                 {
                     isFriend = true;
+                    if (isFriend)
+                    {
+                        tripList = GetTripsForQueriedUser(queriedUser);
+                    }
                     break;
                 }
             }
 
-            if (isFriend)
-            {
-                tripList = GetTripsForQueriedUser(queriedUser);
-            }
+            
+            
 
             return tripList;
         }
