@@ -6,16 +6,16 @@ namespace TripServiceKata.Trip
 {
     public class TripService
     {
-        public List<Trip> GetTripsByUser(User.User user)
+        public List<Trip> GetTripsByUser(User.User queriedUser)
         {
             List<Trip> tripList = new List<Trip>();
-            User.User loggedUser = UserSession.GetInstance().GetLoggedUser();
+            User.User currentLoggedInUser = UserSession.GetInstance().GetLoggedUser();
             bool isFriend = false;
-            if (loggedUser != null)
+            if (currentLoggedInUser != null)
             {
-                foreach(User.User friend in user.GetFriends())
+                foreach(User.User friend in queriedUser.GetFriends())
                 {
-                    if (friend.Equals(loggedUser))
+                    if (friend.Equals(currentLoggedInUser))
                     {
                         isFriend = true;
                         break;
@@ -23,7 +23,7 @@ namespace TripServiceKata.Trip
                 }
                 if (isFriend)
                 {
-                    tripList = TripDAO.FindTripsByUser(user);
+                    tripList = TripDAO.FindTripsByUser(queriedUser);
                 }
                 return tripList;
             }
