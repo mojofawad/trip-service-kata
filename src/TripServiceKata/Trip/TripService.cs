@@ -11,27 +11,27 @@ namespace TripServiceKata.Trip
             List<Trip> tripList = new List<Trip>();
             User.User currentLoggedInUser = GetCurrentLoggedInUser();
             bool isFriend = false;
-            if (currentLoggedInUser != null)
-            {
-                foreach(User.User friend in queriedUser.GetFriends())
-                {
-                    if (friend.Equals(currentLoggedInUser))
-                    {
-                        isFriend = true;
-                        break;
-                    }
-                }
-                
-                if (isFriend)
-                {
-                    tripList = GetTripsForQueriedUser(queriedUser);
-                }
-                return tripList;
-            }
-            else
+            
+            if (currentLoggedInUser == null)
             {
                 throw new UserNotLoggedInException();
             }
+
+            foreach (User.User friend in queriedUser.GetFriends())
+            {
+                if (friend.Equals(currentLoggedInUser))
+                {
+                    isFriend = true;
+                    break;
+                }
+            }
+
+            if (isFriend)
+            {
+                tripList = GetTripsForQueriedUser(queriedUser);
+            }
+
+            return tripList;
         }
 
         protected virtual List<Trip> GetTripsForQueriedUser(User.User queriedUser)
