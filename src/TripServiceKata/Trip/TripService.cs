@@ -8,15 +8,13 @@ namespace TripServiceKata.Trip
     {
         public List<Trip> GetTripsByUser(User.User queriedUser)
         {
-            List<Trip> tripList = new List<Trip>();
             User.User currentLoggedInUser = GetCurrentLoggedInUser();
-            bool isFriend = false;
-            
             if (currentLoggedInUser == null)
             {
                 throw new UserNotLoggedInException();
             }
 
+            bool isFriend = false;
             foreach (User.User friend in queriedUser.GetFriends())
             {
                 if (friend.Equals(currentLoggedInUser))
@@ -26,6 +24,7 @@ namespace TripServiceKata.Trip
                 }
             }
 
+            List<Trip> tripList = new List<Trip>();
             if (isFriend)
             {
                 tripList = GetTripsForQueriedUser(queriedUser);
