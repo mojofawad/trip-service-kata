@@ -15,12 +15,12 @@ namespace TripServiceKata.Trip
             {
                 throw new UserNotLoggedInException();
             }
-
-            var friends = queriedUser.GetFriends();
-
-            return Enumerable.Contains(friends, currentLoggedInUser)
-                ? GetTripsForQueriedUser(queriedUser)
+            
+            var tripList = queriedUser.HasFriend(currentLoggedInUser) 
+                ? GetTripsForQueriedUser(queriedUser) 
                 : new List<Trip>();
+
+            return tripList;
         }
 
         protected virtual List<Trip> GetTripsForQueriedUser(User.User queriedUser)

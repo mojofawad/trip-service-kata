@@ -30,7 +30,7 @@ namespace TripServiceKata.User
 
         public bool HasFriend(User user)
         {
-            throw new System.NotImplementedException();
+            return friends.Any(friend => friend == user);
         }
     }
 }
